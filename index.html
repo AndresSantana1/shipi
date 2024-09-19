@@ -23,13 +23,13 @@
             // Construir el mensaje
             var mensaje = `*Domicilio*\n\nNombre: ${nombre}\nNúmero Teléfono: ${telefono}\nDirección de Entrega: ${direccion_entrega}\nDirección de Recogida: ${direccion_recogida}`;
             
+            mensaje += `\nTipo de Domicilio: ${tipo_domicilio_text}`;
+            
             // Añadir el mensaje adicional solo si no está vacío
             if (mensaje_adicional) {
                 mensaje += `\nMensaje Adicional: ${mensaje_adicional}`;
             }
-
-            mensaje += `\nTipo de Domicilio: ${tipo_domicilio_text}`;
-
+            
             // Codificar el mensaje para la URL
             var mensajeCodificado = encodeURIComponent(mensaje);
 
@@ -58,12 +58,12 @@
                        required step="1" min="0">
             </div>
             <div class="form-group">
-                <label for="direccion_entrega">Dirección de Entrega:</label>
-                <input name="direccion_entrega" type="text" class="form-control" id="direccion_entrega" placeholder="Ingrese dirección entrega" required>
-            </div>
-            <div class="form-group">
                 <label for="direccion_recogida">Dirección de Recogida:</label>
                 <input name="direccion_recogida" type="text" class="form-control" id="direccion_recogida" placeholder="Ingrese dirección recogida" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion_entrega">Dirección de Entrega:</label>
+                <input name="direccion_entrega" type="text" class="form-control" id="direccion_entrega" placeholder="Ingrese dirección entrega" required>
             </div>
             <div class="form-group">
                 <label>Tipo de Domicilio (Dar click encima):</label>
@@ -88,11 +88,10 @@
                     </div>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="mensaje_adicional">Mensaje Adicional (Del paquete a llevar):</label>
+                    <label for="mensaje_adicional">Opcional (Describir paquete):</label>
                     <input name="mensaje_adicional" type="text" class="form-control" id="mensaje_adicional" placeholder="Opcional">
                 </div>
             </div>
-
             <button type="submit" class="btn btn-primary">Enviar Domicilio</button>
         </form>
     </div>
